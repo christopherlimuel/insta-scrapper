@@ -59,6 +59,7 @@ with tab2:
         files_in_directory = os.listdir(os.getcwd())
         account = None
         upload_account = None
+        account_name = None
 
         if csv_account:
             selectbox_account = st.selectbox("Pilih file tautan unggahan untuk diambil komentarnya", csv_account)
@@ -77,8 +78,14 @@ with tab2:
             account = upload_account
             account_name = upload_account.name
         
+        # Disable submit button jika belum memilih akun
+        if account_name == None:
+            st.warning("Pilih file CSV berisi tautan unggahan akun")
+            submit_disable = True
+        else:
+            submit_disable = False        
 
-        submitted = st.form_submit_button(f"Scrape komentar dari {account_name}", icon=":material/frame_inspect:")
+        submitted = st.form_submit_button(f"Scrape komentar dari {account_name}", icon=":material/frame_inspect:", disabled=submit_disable)
 
         if submitted:
             if account is not None:
