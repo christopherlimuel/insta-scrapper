@@ -6,6 +6,13 @@ st.title(":red[Ins]:orange[tag]:violet[ram] Comment Scraper Test & Repair")
 account_url = "https://www.instagram.com/instagram/"
 post_url = "https://www.instagram.com/p/C_Le3j9pG52/"
 
+# Redirect to home page if not logged in
+if 'logged_in' not in st.session_state:
+    st.switch_page("Home.py")
+else:
+    if st.session_state['logged_in'] == False:
+        st.switch_page("Home.py")
+
 testtab, repairtab, helptab = st.tabs(["Test", "Repair", "Help"])
 
 with testtab:

@@ -5,3 +5,4 @@ openpyxl==3.1.5
 streamlit==1.40.0
 streamlit_js_eval==0.1.7
 webdriver-manager==4.0.2
+seleniumbase
