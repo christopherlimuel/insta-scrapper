@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_js_eval import streamlit_js_eval
-from utils import login_instagram, load_cookies
+from utils import login_instagram, load_cookies, get_driver
 import time
 
 from selenium import webdriver
@@ -30,7 +30,7 @@ else:
     password = st.text_input("Masukkan password Instagram", type="password")
 
     if st.button("Login"):
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+        driver = get_driver()
         login_success = login_instagram(driver, username, password)
 
         if login_success:
