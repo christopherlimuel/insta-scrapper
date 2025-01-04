@@ -24,15 +24,16 @@ except FileNotFoundError:
 
 # Inisialisasi driver
 def get_driver():
-    options = Options()
-    options.add_argument("--disable-gpu")
-    options.add_argument("--headless")
-    return webdriver.Chrome(
-        service=ChromeService(
-            ChromeDriverManager().install()
-        ),
-        options=options,
-    )
+    # options = Options()
+    # options.add_argument("--disable-gpu")
+    # options.add_argument("--headless")
+    # return webdriver.Chrome(
+    #     service=ChromeService(
+    #         ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+    #     ),
+    #     options=options,
+    # )
+    return webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 def login_instagram(driver, username, password):
     driver.get("https://www.instagram.com/accounts/login/")
