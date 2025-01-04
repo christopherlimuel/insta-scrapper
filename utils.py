@@ -23,7 +23,6 @@ except FileNotFoundError:
     st.stop()
 
 # Inisialisasi driver
-@st.cache_resource
 def get_driver():
     options = Options()
     options.add_argument("--disable-gpu")
