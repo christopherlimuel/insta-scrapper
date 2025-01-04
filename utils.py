@@ -29,7 +29,7 @@ def get_driver():
     options.add_argument("--headless")
     return webdriver.Chrome(
         service=ChromeService(
-            ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+            ChromeDriverManager().install()
         ),
         options=options,
     )
